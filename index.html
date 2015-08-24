@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <form id="form">
+          <input type="text" value="Regex" oninput="match()">
+        </form>
+        <div id="container">
+            <form id="target">
+                <textarea id="text" onchange="inputText()" onpaste="pasteText(this, event)"></textarea>
+            </form>
+            <div id="display"></div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
