@@ -18,17 +18,19 @@
  */
 
 function match() {
-    console.log("match");
+    document.getElementById('display').style.color = '#000';
     var target = document.getElementById('display').innerHTML;
-    console.log(target);
     if (target && target.length !== 0) {
-        target = target.replace('<p id="light">', '');
-        target = target.replace('</p>', '');
+        target = target.replace('<label id="light">', '');
+        target = target.replace('</label>', '');
 
-        var regex = target.match(new RegExp(document.getElementById('form').getElementsByTagName('input')[0].value, "g")); 
-        for (var s in regex) {
-            if (regex[s].length !== 0) {
-                target = target.replace(regex[s], '<p id="light">' + regex[s] + '</p>');
+        var regexValue = document.getElementById('form').getElementsByTagName('input')[0].value;
+        if (regexValue.length !== 0) {
+            var regex = target.match(new RegExp(regexValue, '')); 
+            for (var s in regex) {
+                if (regex[s].length !== 0 && regex[s] !== 0) {
+                    target = target.replace(regex[s], '<label id="light">' + regex[s] + '</label>');
+                }
             }
         }
         document.getElementById('display').innerHTML = target;
